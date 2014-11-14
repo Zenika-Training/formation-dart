@@ -72,5 +72,156 @@ void main() {
 
 
 
+## Une classe Java
+```Java
+public class Car {
+
+  private int price;
+  private String type;
+  private String brand;
+
+  public Car(type, brand, price) {
+    this.type = type;
+    this.brand = brand;
+    this.price = price;
+  }
+
+  public int getPrice() {
+    return price;
+  }
+
+  /* ... */
+}
+```
+
+
+
+## Une classe Java
+```Java
+public class Car {
+
+  /* ... */
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getBrand() {
+    return brand;
+  }
+
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
+}
+```
+
+
+
+## Une classe Dart
+
+```Dart
+library car;
+
+class Car {
+
+  int _price;
+  String type;
+  String brand;
+
+  Car(this.type, this.brand, this.price);
+
+  int get price => _price;
+
+}
+```
+
+
+
+## Typage
+
+- Dart inclut 6 types de bases :
+  - *num* : *int*, *double*
+  - *String*
+  - *bool*
+  - *Map* déclaré via {}
+  - *List* déclaré via []
+  - *Date*
+
+
+
+## Getter et setter
+
+Les getters et setters sont inclus nativement dans Dart et s'utilisent comme les variables (lecture et affectation).
+
+```Dart
+class Training {
+
+  Trainer _trainer;
+
+  bool get busy => _trainer.busy;
+
+  void set busy(bool busy) {
+    _trainer.busy = busy;
+  }
+}
+
+// Utilisation avec un training existant
+training.busy = true;
+
+print(training.busy);
+```
+
+
+
+## Librairies
+
+- Librairie
+  - Proche des *packages* en Java
+  - groupement *logique* de classes & fonctions
+- Une librairie peut-être :
+  - un unique fichier
+  - scindée entre plusieurs fichiers
+- Directive d'*import* pour les autres librairies
+
+
+
+## Librairies
+
+Déclaration d'une librairie scindée
+
+```Dart
+// Déclaration
+library mon_application;
+
+import 'dart:io';
+
+part "mon_application_1.dart";
+part "mon_application_2.dart";
+```
+
+Implémentation dans un fichier
+
+```Dart
+// Fichier mon_application_1.dart
+part of mon_application;
+```
+
+
+
+## Héritage et interfaces
+
+- Héritage
+  - via *extends*
+  - héritage *simple*
+- Interface *implicite*
+
+
+
 <!-- .slide: data-background="reveal/theme-zenika/images/questions.png" -->
 <!-- .slide: data-background-size="30%" -->
