@@ -1,0 +1,9 @@
+{
+  "name": "formation-zenika",
+  "version": "0.0.0",
+  "author": "Zenika",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "markdown-pdf": "^2.2.0"
+  }
+}

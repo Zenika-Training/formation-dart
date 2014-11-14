@@ -1,0 +1,16 @@
+{
+  "name": "formation-zenika-dart",
+  "version": "0.0.1",
+  "author": "Zenika",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-connect": "0.9.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-markdown-pdf": "2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zenika/formation-dart.git"
+  }
+}
