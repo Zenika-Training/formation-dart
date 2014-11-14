@@ -200,6 +200,11 @@ reduce(array, callback) {
 
 Il est possible de définir des paramètres optionnels :
 
+- *positionnels*
+- *nommés*
+
+Exemple : 
+
 ```Dart
 positional([first="Default Value", second]) {
   print("$first ${second != null ? second : ''}");
@@ -214,8 +219,6 @@ main() {
   named(first: 'Hello', second: 'World');
 }
 ```
-- *positionnels*
-- *nommés*
 
 
 
