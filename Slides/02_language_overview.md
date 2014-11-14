@@ -143,7 +143,7 @@ class Car {
 
 
 
-## Typage
+## Variables
 
 - Dart inclut 6 types de bases :
   - *num* : *int*, *double*
@@ -152,6 +152,8 @@ class Car {
   - *Map* déclaré via {}
   - *List* déclaré via []
   - *Date*
+- *final* déclare une variable ne pouvant être affectée qu'*une* seule fois
+- *const* déclare une constante dont la *déclaration et l'affectation* sont réalisées simultanément
 
 
 
@@ -176,6 +178,44 @@ training.busy = true;
 
 print(training.busy);
 ```
+
+
+
+## Fonctions
+
+- Les fonctions sont des *citoyens de premier ordre*
+  - Exemple : la fonction *main* n'est pas encapsulé dans une classe
+- Possibilité de passer des fonctions en paramètre
+
+```Dart
+reduce(array, callback) {
+  callback(array);
+}
+```
+- Une fonction est *nommée* ou *anonyme*
+
+
+
+## Fonctions : Paramètres optionnels
+
+Il est possible de définir des paramètres optionnels :
+
+```Dart
+positional([first="Default Value", second]) {
+  print("$first ${second != null ? second : ''}");
+}
+
+named({first: "Default Value", second}) {
+  print("$first ${second != null ? second : ''}");
+}
+
+main() {
+  positional('Hello', 'World');
+  named(first: 'Hello', second: 'World');
+}
+```
+- *positionnels*
+- *nommés*
 
 
 
@@ -219,7 +259,42 @@ part of mon_application;
 - Héritage
   - via *extends*
   - héritage *simple*
-- Interface *implicite*
+- Interface *implicite*, chaque classe exporte une interface contenant les membres :
+  - de la classe
+  - des interfaces implémentées
+- Une classe peut implémenter plusieurs interfaces
+
+
+
+## Interface implicite
+
+Exemple :
+```Dart
+class Person {
+
+  void greet() => "Hello there!";
+
+}
+
+class Pal implements Person {
+
+  void greet() => "Hi Pal!";
+
+}
+
+Person p = new Pal();
+print(p.greet());
+```
+
+```
+Hi Pal!
+```
+
+
+
+## Mixins
+
+Les *mixins* permettent de réaliser de l'héritage multiple.
 
 
 
