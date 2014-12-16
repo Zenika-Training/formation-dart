@@ -59,6 +59,12 @@ void main() {
 }
 ```
 
+Notes :
+- Unchecked mode : 1 foo bar 3
+- Checked mode : 1 foo bar
+Breaking on exception: object of type _TypeError: type 'int' is not a subtype of type 'String' of 'second'.
+
+
 
 
 ## Dynamiquement typé mais statiquement analysable (2/2)
@@ -69,6 +75,138 @@ void main() {
 - Deux runtimes :
   - *Checked* pour le *développement*
   - *Unchecked* pour la *production*
+
+
+
+  
+## Gestion des numériques (1/2)
+
+```Dart
+var pi = 3.14159;
+double astronomicalUnitInMiles = 92,955,807.273;
+var result = 6.72e9; // 6720000000.0
+```
+- Les doubles sont des nombres flottants encodés en 64 bit. 
+- IEEE-754 standard.
+- Tout nombre avec une décimale est considéré comme un double.
+- Possibilité d'utiliser la notation scientifique.
+
+
+
+## Gestion des numériques (2/2)
+
+```Dart
+var result = 22 + 11;  // 33
+var formulaAnswer = (8 * 2) / 4 + 2 - 1;  // 5.0
+var division = 5 / 2; // 2.5
+var truncatingDivision = 5 ~/ 2; // 2
+```
+- Les entiers et les doubles sont des sous-classes de ['num'](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:core.num).
+- Les opérateurs `+ - * /` sont des méthodes de la classe ['num'](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:core.num).
+- Différence entre la division et la division tronquée avec `~/`
+- Il existe d'autres méthodes très pratique à appeler sur un nombre.
+```Dart
+42.2.ceil(); // 43.0
+42.2.floor(); // 42.0
+42.7.round(); // 43.0
+(-42).abs(); // 42
+```
+
+
+
+## Conversion 
+
+```Dart
+int.parse('1'); // 1
+int.parse('0x42'); // 66
+int.parse('42', radix: 16); // 66
+double.parse('1.1'); // 1.1
+
+assert(num.parse('42') is int);
+assert(num.parse('0x42') is int);
+assert(num.parse('0.50') is double);
+
+42.toString(); // '42'
+// Specify the number of digits after the decimal.
+assert(123.456.toStringAsFixed(2) == '123.46');
+```
+- La méthode `parse` essaie de créer si possible un integer, sinon un double.
+- `toStringAsFixed`, `toStringAsPrecision`, `toStringAsExponential` sont d'autres méthodes de 'num'.
+
+Notes :
+- `int.parse('1.1')` lance l'erreur 'FormatException: Invalid radix-10 number'
+- Attention aux gros nombres : cela peut poser en javascript
+- ```
+print(double.NAN); //Nan
+print(double.INFINITY); //-Infinity
+print(double.NEGATIVE_INFINITY); //-Infinity
+```
+
+
+
+## Gestion des chaînes de caractères (1/3)
+
+```Dart
+var message = "Bob's puppy is really cute.";
+String html = '<button id="confirmation">Confirm?</button>';
+var username = 'Alice';
+var message = 'Hello, $username!'; // Hello, Alice!
+```
+- Les chaînes de caractères sont une suite de caractères UTF-16
+- 'String interpolation' avec le symbole `$`
+- Pas de concaténation avec `+`
+
+Notes :
+- `StringBuffer` permet de s'occuper de la concaténation
+
+
+
+## Gestion des chaînes de caractères (2/3)
+
+```Dart
+var longMessage = 'This is a long message '
+                                'that is split over two lines';
+// == This is a long message that is split over two lines.
+
+var evenLongerMessage = 
+'''
+You can create
+multi-line strings like this one.
+This is great for templates or snippets of html.''';
+
+var raw = r"Raw strings \n are $left as is." 
+// == Raw strings \n are $left as is.
+```
+- Triple simples quotes ou triple double quotes fonctionnent :)
+- Utiliser les 'raw strings' pour désactiver les 'interpolations'
+ - pratique pour les caractères spéciaux,
+ - nécessaire pour les regex.
+
+
+
+## Gestion des chaînes de caractères (3/3)
+
+```Dart
+// Check whether a string contains another string.
+assert('Never odd or even'.contains('odd'));
+
+// Does a string start with another string?
+assert('Never odd or even'.startsWith('Never'));
+
+// Grab a substring.
+assert('Never odd or even'.substring(6, 9) == 'odd');
+
+// Find the location of a string inside a string.
+assert('Never odd or even'.indexOf('odd') == 6);
+
+// Convert to uppercase.
+assert('zenika'.toUpperCase() == 'ZENIKA');
+
+// Get all the UTF-16 code units in the string.
+var codeUnitList = 'Never odd or even'.codeUnits.toList();
+```
+- Autres méthodes : `trim`, `replaceAll`, `isEmpty`, `endsWith`
+- La classe `RegExp` utilisent les mêmes patterns Javascript
 
 
 
