@@ -270,7 +270,7 @@ body {
   border-color: #ebccd1; }
 
 .reveal .slides  section.stack:first-of-type	 {
-	background-image: url("zenika/images/title-background.png");
+	background-image: url("images/title-background.png");
 }
 
 .reveal table, th, td {
