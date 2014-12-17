@@ -182,6 +182,10 @@ var raw = r"Raw strings \n are $left as is."
  - pratique pour les caractères spéciaux,
  - nécessaire pour les regex.
 
+Notes :
+- La classe `RegExp` utilisent les mêmes patterns Javascript
+
+
 
 
 ## Gestion des chaînes de caractères (3/3)
@@ -206,7 +210,51 @@ assert('zenika'.toUpperCase() == 'ZENIKA');
 var codeUnitList = 'Never odd or even'.codeUnits.toList();
 ```
 - Autres méthodes : `trim`, `replaceAll`, `isEmpty`, `endsWith`
-- La classe `RegExp` utilisent les mêmes patterns Javascript
+
+
+
+## Gestion des booléens
+
+```Dart
+int lineCount;
+assert(lineCount == null);
+// Variables (even if they will be numbers) are initially null.
+
+var dartIsFun = true;
+bool dartIsHardToLearn = false;
+
+if (1) {
+  // in JavaScript, this is true
+} else {
+  // in Dart, this is false
+}
+```
+- *Only true is truthy*
+- Pas de *undefined*, seulement *null*
+
+
+
+## Gestion des collections
+
+```Dart
+var numbers = new Iterable.generate(5, (i) => i);
+// 0 1 2 3 4
+for (var number in numbers) {
+  print(number);
+}
+numbers.length;
+numbers.any((int i) => i.isEven);
+numbers.contains(10);
+numbers.where((i) => i.isOdd).toSet();
+// 1, 3
+numbers.map((i) => i * 2).toList();
+// 0, 2, 4, 6, 8
+```
+- Gestion des *List*, *Set*, *Map*, *Queue*
+
+Notes :
+Image à montrer si pas clair l'utilisation de chaque type :
+https://www.dartlang.org/dart-tips/imgs/ep-5-flowchart.png
 
 
 
