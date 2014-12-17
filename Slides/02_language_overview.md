@@ -249,8 +249,10 @@ numbers.where((i) => i.isOdd).toSet();
 // 1, 3
 numbers.map((i) => i * 2).toList();
 // 0, 2, 4, 6, 8
+[0, 1, 2, 3].where((n) => n.isEven).forEach(print);
 ```
 - Gestion des *List*, *Set*, *Map*, *Queue*
+- Pas de `array`
 
 Notes :
 Image à montrer si pas clair l'utilisation de chaque type :
@@ -327,6 +329,10 @@ class Car {
 }
 ```
 
+Notes :
+- constructeur nommé
+- private avec *_*
+
 
 
 ## Variables
@@ -367,10 +373,10 @@ print(training.busy);
 
 
 
-## Fonctions
+## Fonctions (1/2)
 
 - Les fonctions sont des *citoyens de premier ordre*
-  - Exemple : la fonction *main* n'est pas encapsulé dans une classe
+  - Exemple : la fonction *main* n'est pas encapsulée dans une classe
 - Possibilité de passer des fonctions en paramètre
 
 ```Dart
@@ -379,6 +385,24 @@ reduce(array, callback) {
 }
 ```
 - Une fonction est *nommée* ou *anonyme*
+
+
+
+## Fonctions (2/2)
+
+```Dart
+// A éviter
+filterAndPrint(List items, Function filter) {
+  items.where(filter).forEach(print);
+}
+// Préconiser
+filterAndPrint(List items, bool filter(int n)) {
+  items.where(filter).forEach(print);
+}
+
+filterAndPrint([8,9,10], (n) => n.isEven);
+// 8, 10
+```
 
 
 
