@@ -6,7 +6,7 @@ class Car {
   String type;
   String brand;
 
-  Car(this.type, this.brand, this.price);
+  Car(this.type, this.brand, this._price);
 
   int get price => _price;
 

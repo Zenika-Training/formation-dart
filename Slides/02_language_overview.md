@@ -78,7 +78,7 @@ Breaking on exception: object of type _TypeError: type 'int' is not a subtype of
 
 
 
-  
+
 ## Gestion des numériques (1/2)
 
 ```Dart
@@ -86,7 +86,7 @@ var pi = 3.14159;
 double astronomicalUnitInMiles = 92,955,807.273;
 var result = 6.72e9; // 6720000000.0
 ```
-- Les doubles sont des nombres flottants encodés en 64 bit. 
+- Les doubles sont des nombres flottants encodés en 64 bit.
 - IEEE-754 standard.
 - Tout nombre avec une décimale est considéré comme un double.
 - Possibilité d'utiliser la notation scientifique.
@@ -114,7 +114,7 @@ var truncatingDivision = 5 ~/ 2; // 2
 
 
 
-## Conversion 
+## Conversion
 
 ```Dart
 int.parse('1'); // 1
@@ -154,7 +154,7 @@ var message = 'Hello, $username!'; // Hello, Alice!
 ```
 - Les chaînes de caractères sont une suite de caractères UTF-16
 - 'String interpolation' avec le symbole `$`
-- Pas de concaténation avec `+`
+- Concaténation avec `+` possible
 
 Notes :
 - `StringBuffer` permet de s'occuper de la concaténation
@@ -168,13 +168,13 @@ var longMessage = 'This is a long message '
                                 'that is split over two lines';
 // == This is a long message that is split over two lines.
 
-var evenLongerMessage = 
+var evenLongerMessage =
 '''
 You can create
 multi-line strings like this one.
 This is great for templates or snippets of html.''';
 
-var raw = r"Raw strings \n are $left as is." 
+var raw = r"Raw strings \n are $left as is."
 // == Raw strings \n are $left as is.
 ```
 - Triple simples quotes ou triple double quotes fonctionnent :)
@@ -378,6 +378,7 @@ print(training.busy);
 - Les fonctions sont des *citoyens de premier ordre*
   - Exemple : la fonction *main* n'est pas encapsulée dans une classe
 - Possibilité de passer des fonctions en paramètre
+  - Ouveture au monde de la programmation `fonctionnelle`
 
 ```Dart
 reduce(array, callback) {
@@ -413,7 +414,7 @@ Il est possible de définir des paramètres optionnels :
 - *positionnels*
 - *nommés*
 
-Exemple : 
+Exemple :
 
 ```Dart
 positional([first="Default Value", second]) {
@@ -508,6 +509,26 @@ Hi Pal!
 ## Mixins
 
 Les *mixins* permettent de réaliser de l'héritage multiple.
+
+
+
+## Types énumérés
+
+* Type de classe utilisé pour représenter des `valeurs constantes`
+ * Nombre
+ * Chaîne de caractère
+* Nouveauté de Dart 1.8 et connu des développeurs Java
+
+```Dart
+enum Example { Foo, Bar, Bass}
+
+main() {
+  var ex = Example.Foo;
+  if (ex == Example.Foo) {
+    print('Foo');
+  }
+}
+```
 
 
 
