@@ -1,0 +1,7 @@
+name: dom_manipulation_example
+version: 0.0.1
+description: An example project to illustrate the dom manipulation
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  browser: any
