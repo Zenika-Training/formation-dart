@@ -2,16 +2,12 @@
 
 ## Génération du PDF
 
-Pour générer le PDF, il faut avoir Node.js. 
-Lancer `npm install` dans le répertoire puis `grunt`.
+Pour générer le cahier de TP au format PDF, taper la commande suivante:
+```
+grunt generateCahierExercice
+```
 
-## CSS
-
-Le CSS utilisé se trouve dans `resources/github.css`. Comme son nom l'indique
-il est très largement inspiré de la mise en page de GitHub.
-
-Il lui manque néanmoins quelques règles d'impression notamment pour que les
-grand titres ne se retrouvent pas en bas de page.
+Il est possible de générer à la fois le cahier d'exercices et les slides au format PDF avec la commande `grunt pdf`
 
 ## Assets
 
@@ -20,7 +16,7 @@ Mettre des assets est possible mais le chemin pour les lier est peu pratique.
 Voici un exemple d'image :
 
 ```markdown
-![Node.js](../../../resources/logo-zenika.jpg)
+![Node.js](../../../../../CahierExercices/ressources/logo-zenika.jpg)
 ```
 
 Sauf en modifiant la librairie utiliser pour générer le PDF, il n'est pas
