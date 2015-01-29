@@ -1,0 +1,5 @@
+name: simple_server
+version: 0.0.1
+description: An example project to illustrate the server implementation
+environment:
+  sdk: '>=1.0.0 <2.0.0'

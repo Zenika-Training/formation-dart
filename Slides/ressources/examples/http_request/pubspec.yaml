@@ -1,0 +1,6 @@
+name: http_request
+version: 0.0.1
+description: A simple app to demonstrate httprequest from the browser
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:

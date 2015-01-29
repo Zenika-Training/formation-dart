@@ -2,5 +2,6 @@
   "00_agenda.md",
   "01_global_overview.md",
   "02_language_overview.md",
-  "03_first_web_application.md"
+  "03_first_web_application.md",
+  "04_server_communication.md"
 ]
