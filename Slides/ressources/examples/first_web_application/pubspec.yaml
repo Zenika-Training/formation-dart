@@ -1,0 +1,7 @@
+name: first_web_application
+version: 0.0.1
+description: A first web application
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  browser: any
